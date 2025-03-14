@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Area List</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Areas</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Province ID</th>
+        <th>City ID</th>
+        <th>Area ID</th>
+        <th>Province Name</th>
+        <th>City Name</th>
+        <th>Area Name</th>
+        <th>Code</th>
+        <th>Center Position</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 如果 areas 列表为空，显示一条消息 -->
+    <tr th:if="${#lists.isEmpty(areas)}">
+        <td colspan="9">No data available</td>
+    </tr>
+
+    <!-- 遍历 areas 列表并显示每一行数据 -->
+    <tr th:each="area : ${areas}">
+        <td th:text="${area.id}">id</td>
+        <td th:text="${area.provinceID}">provinceID</td>
+        <td th:text="${area.cityID}">cityID</td>
+        <td th:text="${area.areaID}">areaID</td>
+        <td th:text="${area.provinceName}">provinceName</td>
+        <td th:text="${area.cityName}">cityName</td>
+        <td th:text="${area.areaName}">areaName</td>
+        <td th:text="${area.code}">code</td>
+        <td th:text="${area.centerPos}">centerPos</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
