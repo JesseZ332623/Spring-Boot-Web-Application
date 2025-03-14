@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Country Management</title>
+
+    <link rel="stylesheet" th:href="@{/CSS/CountryManagementStyle.css}" type="text/css">
+    <script th:src="@{/Script/CountryManagement.js}"></script>
+</head>
+<body>
+
+<h1>Country Management System</h1>
+
+<div class="section">
+    <button id="jumpButton" onclick="getAllCountries()">
+        <strong>Get All Countries</strong>
+    </button>
+</div>
+
+<!-- Get Country Section -->
+<div class="section">
+    <h2>1. Query Country</h2>
+    <div class="input-group">
+        <label for="countryCode">
+            <input type="text" id="countryCode" placeholder="Country Code (e.g. CHN)" required>
+        </label>
+        <button onclick="getCountry()" type="submit">Search</button>
+    </div>
+    <div id="getResult" class="result"></div>
+</div>
+
+<!-- Add Country Section -->
+<div class="section">
+    <h2>2. Add New Country</h2>
+    <div class="input-group">
+        <label for="newCode"></label>
+            <input type="text" id="newCode" placeholder="Code">
+
+        <label for="newName"></label>
+            <input type="text" id="newName" placeholder="Name">
+
+        <label for="newContinent"></label>
+        <input type="text" id="newContinent" placeholder="Continent">
+
+        <label for="newRegion"></label>
+        <input type="text" id="newRegion" placeholder="Region">
+
+        <label for="newSurfaceArea"></label>
+        <input type="text" id="newSurfaceArea" placeholder="SurfaceArea">
+
+        <label for="newIndepYear"></label>
+        <input type="text" id="newIndepYear" placeholder="IndepYear">
+
+        <label for="newPopulation"></label>
+        <input type="text" id="newPopulation" placeholder="Population">
+
+        <label for="newLifeExpectancy"></label>
+        <input type="text" id="newLifeExpectancy" placeholder="LifeExpectancy">
+
+        <label for="newGNP"></label>
+        <input type="text" id="newGNP" placeholder="GNP">
+
+        <label for="newGNPOld"></label>
+        <input type="text" id="newGNPOld" placeholder="GNPOld">
+
+        <label for="newLocalName"></label>
+        <input type="text" id="newLocalName" placeholder="LocalName">
+
+        <label for="newGovernmentForm"></label>
+        <input type="text" id="newGovernmentForm" placeholder="GovernmentForm">
+
+        <label for="newHeadOfState"></label>
+        <input type="text" id="newHeadOfState" placeholder="HeadOfState">
+
+        <label for="newCapital"></label>
+        <input type="text" id="newCapital" placeholder="Capital">
+
+        <label for="newCode2"></label>
+        <input type="text" id="newCode2" placeholder="Code2">
+
+        <button onclick="addCountry()">Create</button>
+    </div>
+    <div id="postResult" class="result"></div>
+</div>
+
+<!-- Update Country Section -->
+<div class="section">
+    <h2>3. Update Country</h2>
+    <div class="input-group">
+        <label for="updateCode"></label>
+        <input type="text" id="updateCode" placeholder="Code">
+
+        <label for="updateName"></label>
+        <input type="text" id="updateName" placeholder="Name">
+
+        <label for="updateContinent"></label>
+        <input type="text" id="updateContinent" placeholder="Continent">
+
+        <label for="updateRegion"></label>
+        <input type="text" id="updateRegion" placeholder="Region">
+
+        <label for="updateSurfaceArea"></label>
+        <input type="text" id="updateSurfaceArea" placeholder="SurfaceArea">
+
+        <label for="updateIndepYear"></label>
+        <input type="text" id="updateIndepYear" placeholder="IndepYear">
+
+        <label for="updatePopulation"></label>
+        <input type="text" id="updatePopulation" placeholder="Population">
+
+        <label for="updateLifeExpectancy"></label>
+        <input type="text" id="updateLifeExpectancy" placeholder="LifeExpectancy">
+
+        <label for="updateGNP"></label>
+        <input type="text" id="updateGNP" placeholder="GNP">
+
+        <label for="updateGNPOld"></label>
+        <input type="text" id="updateGNPOld" placeholder="GNPOld">
+
+        <label for="updateLocalName"></label>
+        <input type="text" id="updateLocalName" placeholder="LocalName">
+
+        <label for="updateGovernmentForm"></label>
+        <input type="text" id="updateGovernmentForm" placeholder="GovernmentForm">
+
+        <label for="updateHeadOfState"></label>
+        <input type="text" id="updateHeadOfState" placeholder="HeadOfState">
+
+        <label for="updateCapital"></label>
+        <input type="text" id="updateCapital" placeholder="Capital">
+
+        <label for="updateCode2"></label>
+        <input type="text" id="updateCode2" placeholder="Code2">
+
+        <button onclick="updateCountry()">Update</button>
+    </div>
+    <div id="putResult" class="result"></div>
+</div>
+
+<!-- Delete Country Section -->
+<div class="section">
+    <h2>4. Delete Country</h2>
+    <div class="input-group">
+        <label for="deleteCode"></label>
+        <input type="text" id="deleteCode" placeholder="Country Code">
+        <button onclick="deleteCountry()">Delete</button>
+    </div>
+    <div id="deleteResult" class="result"></div>
+</div>
+</body>
+</html>
