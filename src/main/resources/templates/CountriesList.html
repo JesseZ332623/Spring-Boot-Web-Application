@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Area List</title>
+
+    <style>
+        body { text-align: center; }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 50%;
+
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 4px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>All Countries</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Continent</th>
+        <th>Region</th>
+        <th>SurfaceArea</th>
+        <th>IndepYear</th>
+        <th>Population</th>
+        <th>LifeExpectancy</th>
+        <th>GNP</th>
+        <th>GNPOld</th>
+        <th>LocalName</th>
+        <th>GovernmentForm</th>
+        <th>HeadOfSatate</th>
+        <th>Capital</th>
+        <th>Code2</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 如果 areas 列表为空，显示一条消息 -->
+    <tr th:if="${#lists.isEmpty(areas)}">
+        <td colspan="9">No data available</td>
+    </tr>
+
+    <!-- 遍历 areas 列表并显示每一行数据 -->
+    <tr th:each="country : ${countries}">
+        <td th:text="${country.code}">code</td>
+        <td th:text="${country.name}">name</td>
+        <td th:text="${country.continet}">continet</td>
+        <td th:text="${country.region}">region</td>
+        <td th:text="${country.surfaceArea}">surfaceArea</td>
+        <td th:text="${country.indepYear}">indepYear</td>
+        <td th:text="${country.population}">population</td>
+        <td th:text="${country.lifeExpectancy}">lifeExpectancy</td>
+        <td th:text="${country.gnp}">gnp</td>
+        <td th:text="${country.gnpOld}">gnpOld</td>
+        <td th:text="${country.localName}">localName</td>
+        <td th:text="${country.governmentForm}">governmentForm</td>
+        <td th:text="${country.headOfState}">headOfState</td>
+        <td th:text="${country.capital}">capital</td>
+        <td th:text="${country.code2}">code2</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
