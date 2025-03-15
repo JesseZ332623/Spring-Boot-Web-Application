@@ -2,7 +2,7 @@ package org.example.controller.areacontroller;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import response.Response;
+import org.example.response.Response;
 import org.example.databaseaccess.area.Area;
 import org.example.service.areaqueryservice.AreaQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
