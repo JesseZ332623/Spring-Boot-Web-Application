@@ -14,7 +14,7 @@ public class Country
     private String name;
 
     @Column(name = "Continent")
-    private String continet;
+    private String continent;
 
     @Column(name = "Region")
     private String region;
@@ -68,12 +68,12 @@ public class Country
         this.name = name;
     }
 
-    public String getContinet() {
-        return continet;
+    public String getContinent() {
+        return continent;
     }
 
-    public void setContinet(String continet) {
-        this.continet = continet;
+    public void setContinet(String continent) {
+        this.continent = continent;
     }
 
     public String getRegion() {
