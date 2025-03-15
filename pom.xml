@@ -77,7 +77,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>org.example.SpringBootServer</mainClass> <!-- 指定主类 -->
+                    <mainClass>org.example.SpringBootServerStart</mainClass> <!-- 指定主类 -->
                     <layout>ZIP</layout> <!-- 可选，指定打包格式 -->
                     <addResources>true</addResources> <!-- 可选，是否将resources目录下的文件添加到JAR中 -->
                 </configuration>
