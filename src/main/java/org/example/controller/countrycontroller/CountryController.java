@@ -5,7 +5,7 @@ import org.example.service.countryqueryservice.CountryQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import response.Response;
+import org.example.response.Response;
 
 @RestController
 public class CountryController
