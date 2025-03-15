@@ -39,14 +39,18 @@ public class CountryController
     }
 
     @PostMapping("/country")
-    public Response<String> addNewCountry(@RequestBody Country newCountry)
+    public Response<Country> addNewCountry(@RequestBody Country newCountry)
     {
         try
         {
-            String newCountryCode = this.countryQueryService.addNewCountry(newCountry);
+            Country newCountryReturn = this.countryQueryService.addNewCountry(newCountry);
 
             return Response.newSuccess(
-                    newCountryCode, String.format("Add new country row country code = {%s}.", newCountryCode)
+                    newCountryReturn,
+                    String.format(
+                            "Add new country row country code = {%s}.",
+                            newCountryReturn.getCode()
+                    )
             );
         }
         catch (IllegalStateException illegalStateException)
@@ -58,15 +62,18 @@ public class CountryController
     }
 
     @PutMapping("/country")
-    public Response<String> updateCountry(@RequestBody Country updateCountry)
+    public Response<Country> updateCountry(@RequestBody Country updateCountry)
     {
         try
         {
-            String updateContryCode = this.countryQueryService.updateCountry(updateCountry).getCode();
+            Country updateContryReturn = this.countryQueryService.updateCountry(updateCountry);
 
             return Response.newSuccess(
-                    updateContryCode,
-                    String.format("Update data row country code = {%s}.", updateContryCode)
+                    updateContryReturn,
+                    String.format(
+                            "Update data row country code = {%s}.",
+                            updateContryReturn.getCode()
+                    )
             );
         }
         catch (IllegalStateException illegalStateException)
@@ -78,15 +85,18 @@ public class CountryController
     }
 
     @DeleteMapping("/country/{code}")
-    public Response<String> deleteCountryByCode(@PathVariable String code)
+    public Response<Country> deleteCountryByCode(@PathVariable String code)
     {
         try
         {
-            String deleteCountryCode = this.countryQueryService.deleteCountryByCode(code);
+            Country deleteCountry = this.countryQueryService.deleteCountryByCode(code);
 
             return Response.newSuccess(
-                    deleteCountryCode,
-                    String.format("Delete data row country code = {%s}.", deleteCountryCode)
+                    deleteCountry,
+                    String.format(
+                            "Delete data row country code = {%s}.",
+                            deleteCountry.getCode()
+                    )
             );
         }
         catch (IllegalStateException illegalStateException)
