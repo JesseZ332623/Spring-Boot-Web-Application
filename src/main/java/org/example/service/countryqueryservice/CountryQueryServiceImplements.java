@@ -39,7 +39,7 @@ public class CountryQueryServiceImplements implements CountryQueryService
 
     @Override
     @Transactional
-    public String addNewCountry(@NotNull Country newCountry)
+    public Country addNewCountry(@NotNull Country newCountry)
     {
         List<Country> uniqueQueryResult
                 = this.countryRepository.findByCode(newCountry.getCode());
@@ -56,13 +56,13 @@ public class CountryQueryServiceImplements implements CountryQueryService
 
         this.countryRepository.save(newCountry);
 
-        return newCountry.getCode();
+        return newCountry;
     }
 
     @Override
-    public String deleteCountryByCode(String code)
+    public Country deleteCountryByCode(String code)
     {
-        this.countryRepository.findById(code).orElseThrow(
+        Country queryResult = this.countryRepository.findById(code).orElseThrow(
                 () -> new IllegalStateException(
                         String.format(
                                 "Country code: {%s} not exsist in this table.", code
@@ -72,7 +72,7 @@ public class CountryQueryServiceImplements implements CountryQueryService
 
         this.countryRepository.deleteById(code);
 
-        return code;
+        return queryResult;
     }
 
     @Override
@@ -97,8 +97,8 @@ public class CountryQueryServiceImplements implements CountryQueryService
         if (this.stringColumnCheck(queryResult.getName(), updatedCountry.getName())) {
             queryResult.setName(updatedCountry.getName());
         }
-        if (this.stringColumnCheck(queryResult.getContinet(), updatedCountry.getContinet())) {
-            queryResult.setContinet(updatedCountry.getContinet());
+        if (this.stringColumnCheck(queryResult.getContinent(), updatedCountry.getContinent())) {
+            queryResult.setContinet(updatedCountry.getContinent());
         }
         if (this.stringColumnCheck(queryResult.getRegion(), updatedCountry.getRegion())) {
             queryResult.setRegion(updatedCountry.getRegion());
