@@ -1,6 +1,7 @@
 package org.example.datasourceconfig;
 
 import com.zaxxer.hikari.HikariDataSource;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -54,7 +55,7 @@ class DataSourceConfigInstruction {}
         entityManagerFactoryRef = "primaryEntityManagerFactory",
         transactionManagerRef   = "primaryTransactionManager"
 )
-public class PrimaryDataSourceConfig
+public class AreaDataSourceConfig
 {
     /**
      * 获取主数据源的工厂方法。
@@ -145,7 +146,7 @@ public class PrimaryDataSourceConfig
     @Primary
     @Bean(name = "primaryTransactionManager")
     public PlatformTransactionManager primaryTransactionManager(
-            @Qualifier("primaryEntityManagerFactory")
+            @Qualifier("primaryEntityManagerFactory") @NotNull
             LocalContainerEntityManagerFactoryBean entityManagerFactory
     ) {
         return new JpaTransactionManager(
