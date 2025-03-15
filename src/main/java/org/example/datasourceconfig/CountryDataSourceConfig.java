@@ -1,6 +1,7 @@
 package org.example.datasourceconfig;
 
 import com.zaxxer.hikari.HikariDataSource;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -23,7 +24,7 @@ import java.util.Objects;
         entityManagerFactoryRef = "secondaryEntityManagerFactory",
         transactionManagerRef   = "secondaryTransactionManager"
 )
-public class SecondaryDataSourceConfig
+public class CountryDataSourceConfig
 {
     @Bean(name = "secondaryDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.secondary")
@@ -55,7 +56,7 @@ public class SecondaryDataSourceConfig
 
     @Bean(name = "secondaryTransactionManager")
     public PlatformTransactionManager secondaryTransactionManager(
-            @Qualifier("secondaryEntityManagerFactory")
+            @Qualifier("secondaryEntityManagerFactory") @NotNull
             LocalContainerEntityManagerFactoryBean entityManagerFactoryBean
     )
     {
