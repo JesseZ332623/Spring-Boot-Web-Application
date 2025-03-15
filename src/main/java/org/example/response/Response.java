@@ -1,5 +1,6 @@
-package response;
+package org.example.response;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.http.HttpStatus;
 
 public class Response <DataType>
@@ -11,18 +12,21 @@ public class Response <DataType>
 
     HttpStatus       status;
 
-    public static <DT> Response<DT> newSuccess(DT data)
+    public static <DT>
+    @NotNull Response<DT> newSuccess(DT data)
     {
         Response<DT> response = new Response<>();
 
         response.setData(data);
         response.setIfSuccess(true);
+        response.setInfoMessage("Success!");
         response.setStatus(HttpStatus.OK);
 
         return response;
     }
 
-    public static <DT> Response<DT> newSuccess(DT data, String infoMessage)
+    public static <DT>
+    @NotNull Response<DT> newSuccess(DT data, String infoMessage)
     {
         Response<DT> response = new Response<>();
 
@@ -34,7 +38,8 @@ public class Response <DataType>
         return response;
     }
 
-    public static <DT> Response<DT> newFailed(String errorMessage, HttpStatus status)
+    public static <DT>
+    @NotNull Response<DT> newFailed(String errorMessage, HttpStatus status)
     {
         Response<DT> response = new Response<>();
 
