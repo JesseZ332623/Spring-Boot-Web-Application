@@ -8,9 +8,9 @@ public interface CountryQueryService
 {
     Country getCountryByCode(String code);
 
-    String  addNewCountry(Country newCountry);
+    Country addNewCountry(Country newCountry);
 
-    String  deleteCountryByCode(String code);
+    Country  deleteCountryByCode(String code);
 
     Country updateCountry(Country updatedCountry);
 
