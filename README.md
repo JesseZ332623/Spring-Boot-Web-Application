@@ -1,3 +1,3 @@
 # Spring-Boot Web 应用搭建
 
-![Web Page](./Project%20Display/1.png)
+![Web Page Display](./Project-Display/1.png)
